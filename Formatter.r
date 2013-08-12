@@ -58,7 +58,7 @@ for (i in grep("[:*:]", txt)) {
   # Break each line to discover is the first symbol which is not a space is a *
   txt2 <- strsplit(txt[i], split=" ")[[1]]
   if (txt2[txt2!=""][1]=="*") {
-    txt.rep <- paste(c(comment.start,txt[[i]],comment.end), collapse=" ")
+    txt.rep <- paste(c(comment.start,txt[[i]],comment.end), collapse="")
     txt[[i]] <- txt.rep
     comment[i] <- 1
   }
