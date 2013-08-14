@@ -1,11 +1,5 @@
 library(shiny)
-library(datasets)
 
-# We tweak the "am" field to have nicer factor labels. Since this doesn't
-# rely on any user inputs we can do this once at startup and then use the
-# value throughout the liff.etime of the application
-mpgData <- mtcars
-mpgData$am <- factor(mpgData$am, labels = c("Automatic", "Manual"))
 
 # Define server logic required to plot various variables against mpg
 shinyServer(function(input, output) {
@@ -15,6 +9,10 @@ shinyServer(function(input, output) {
   syntax.highlighted <- reactive({
     
     txt <- input$input_code
+    
+    # Uncomment this next line to test the code off the server
+    # txt <- readLines("https://gist.github.com/EconometricsBySimulation/6235945/raw/02bb07a48d9cb0bd6d76309967be8b827506dea7/gistfile1.txt")
+    
     
     # Choose the formatting tags you would like applied to each field type.
     comment.start <- '<span style="color: #669933">'
